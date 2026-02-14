@@ -27,7 +27,7 @@ const Header = () => {
                     <div className="logo-icon">SA</div>
                 </div>
                 <nav className="nav">
-                    <a href="#about" onClick={(e) => scrollToSection(e, 'about')}>
+                    <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>
                         About me
                     </a>
                     <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')}>
