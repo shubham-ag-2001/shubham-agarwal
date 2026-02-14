@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import AboutPreview from './components/AboutPreview'
+import Contact from './components/Contact'
 import { personalInfo, aboutPreview } from './data/constants'
 import profileImage from './assets/shubham-side.jpg'
 import './App.css'
@@ -43,12 +44,7 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" style={{ minHeight: '100vh', padding: '4rem 2rem', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Contact Section</h2>
-          <p style={{ fontSize: '1.2rem', color: '#666' }}>Coming soon...</p>
-        </div>
-      </section>
+      <Contact email={personalInfo.email} />
     </div>
   )
 }
