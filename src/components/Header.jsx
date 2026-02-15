@@ -33,6 +33,9 @@ const Header = () => {
                     <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')}>
                         Skills
                     </a>
+                    <a target='_blank' href="https://drive.google.com/file/d/19dgOi6wRuiFHH3eHbbcYqhAv0BHXURik/view">
+                        Resume
+                    </a>
                     <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')}>
                         Portfolio
                     </a>
