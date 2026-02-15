@@ -1,8 +1,10 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import AboutPreview from './components/AboutPreview'
+import Skills from './components/Skills'
 import Contact from './components/Contact'
 import { personalInfo, aboutPreview } from './data/constants'
+import { skillsData } from './data/skills'
 import profileImage from './assets/shubham-side.jpg'
 import './App.css'
 
@@ -29,13 +31,7 @@ function App() {
         description={aboutPreview.description}
       />
 
-      {/* Placeholder sections - to be developed */}
-      <section id="skills" style={{ minHeight: '100vh', padding: '4rem 2rem', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Skills Section</h2>
-          <p style={{ fontSize: '1.2rem', color: '#666' }}>Coming soon...</p>
-        </div>
-      </section>
+      <Skills skillsData={skillsData} />
 
       <section id="portfolio" style={{ minHeight: '100vh', padding: '4rem 2rem', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div>
