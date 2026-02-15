@@ -4,7 +4,8 @@ export const personalInfo = {
     tagline: 'Software Developer at Zeta (Directi)',
     email: 'shubhamagarwal23456@gmail.com',
     github: 'https://github.com/shubham-ag-2001',
-    linkedin: 'https://www.linkedin.com/in/shubham-agarwal-64b03b201/'
+    linkedin: 'https://www.linkedin.com/in/shubham-agarwal-64b03b201/',
+    resume: 'https://drive.google.com/file/d/19dgOi6wRuiFHH3eHbbcYqhAv0BHXURik/view'
 }
 
 // About Preview Content

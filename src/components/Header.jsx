@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { personalInfo } from '../data/constants'
 import './Header.css'
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,12 +15,35 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    // Close menu when resizing to desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768 && isMenuOpen) {
+                setIsMenuOpen(false)
+            }
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [isMenuOpen])
+
     const scrollToSection = (e, sectionId) => {
         e.preventDefault()
+        setIsMenuOpen(false)
         const element = document.getElementById(sectionId)
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
+            const headerOffset = 80
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
         }
+    }
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
     }
 
     return (
@@ -26,19 +52,26 @@ const Header = () => {
                 <div className="logo">
                     <div className="logo-icon">SA</div>
                 </div>
-                <nav className="nav">
+
+                <div className="mobile-toggle" onClick={toggleMenu}>
+                    {isMenuOpen ? <FaTimes /> : <FaBars />}
+                </div>
+
+                <nav className={`nav ${isMenuOpen ? 'active' : ''}`}>
                     <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>
                         About me
                     </a>
                     <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')}>
                         Skills
                     </a>
-                    <a target='_blank' href="https://drive.google.com/file/d/19dgOi6wRuiFHH3eHbbcYqhAv0BHXURik/view">
+                    <a
+                        target='_blank'
+                        href={personalInfo.resume}
+                        rel="noopener noreferrer"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
                         Resume
                     </a>
-                    {/* <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')}>
-                        Portfolio
-                    </a> */}
                     <a
                         href="#contact"
                         onClick={(e) => scrollToSection(e, 'contact')}

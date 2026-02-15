@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { personalInfo } from '../data/constants'
 import './AboutPreview.css'
 
 const AboutPreview = ({ title, description, onReadMore }) => {
@@ -25,10 +26,7 @@ AboutPreview.propTypes = {
 
 AboutPreview.defaultProps = {
     onReadMore: () => {
-        const aboutSection = document.getElementById('about')
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' })
-        }
+        window.open(personalInfo.resume, '_blank', 'noopener,noreferrer')
     }
 }
 

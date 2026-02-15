@@ -82,23 +82,29 @@
 @media (max-width: 1024px) {
     .hero-section {
         grid-template-columns: 1fr;
+        padding-top: 60px;
+        /* Header height offset */
     }
 
     .hero-left {
         clip-path: none;
-    }
-
-    .hero-left {
         padding: var(--spacing-lg);
+        padding-top: var(--spacing-xl);
+        /* Extra padding for breathing room */
     }
 
     .hero-content {
         margin: 0 auto;
         padding: 0;
+        text-align: center;
+        /* Center align on mobile */
     }
 
     .hero-right {
-        min-height: 60vh;
+        min-height: 50vh;
+        width: 100%;
+        clip-path: none;
+        /* simple rectangle on mobile */
     }
 }
 
