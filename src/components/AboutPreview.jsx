@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { personalInfo } from '../data/constants'
 import './AboutPreview.css'
 
-const AboutPreview = ({ title, description, onReadMore }) => {
+const AboutPreview = ({ title, description }) => {
     return (
         <section id="about-preview" className="about-preview">
             <div className="about-preview-content">
@@ -10,9 +10,14 @@ const AboutPreview = ({ title, description, onReadMore }) => {
                 {description.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                 ))}
-                <button onClick={onReadMore} className="read-more-btn">
+                <a
+                    href={personalInfo.resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="read-more-btn"
+                >
                     READ MORE
-                </button>
+                </a>
             </div>
         </section>
     )
@@ -20,14 +25,7 @@ const AboutPreview = ({ title, description, onReadMore }) => {
 
 AboutPreview.propTypes = {
     title: PropTypes.string.isRequired,
-    description: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onReadMore: PropTypes.func
-}
-
-AboutPreview.defaultProps = {
-    onReadMore: () => {
-        window.open(personalInfo.resume, '_blank', 'noopener,noreferrer')
-    }
+    description: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
 export default AboutPreview
